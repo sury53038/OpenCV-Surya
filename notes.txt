@@ -1,0 +1,6 @@
+resized = cv2.   resize   (image,         dsize,          fx, fy, interpolation)
+
+variabel  opencv  resize    image2resize    dimensions
+          library  function                                         (optional)
+
+
