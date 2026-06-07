@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 import os
 
 imgPath = "images/"
@@ -19,17 +20,37 @@ loadImg()
 
 def gaussBlur(img):
     if img is not None:
-        blurdImg = cv2.GaussianBlur(img, (7,7), 3)
+        blurdImg = cv2.GaussianBlur(img, (9,9), 3)
 
 
-        cv2.imshow("Real Image", img)
-        cv2.imshow("Blurred Image", blurdImg)
+        # cv2.imshow("Real Image", img)
+        # cv2.imshow("Blurred Image", blurdImg)
 
-        cv2.waitKey(0)
+        return blurdImg
+
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-gaussBlur(img4use[0])
+blur_img = gaussBlur(img4use[0])
 
 
+def sharpenImg(img):
+    kernel = np.array([
+        [0, -1, 0],
+        [-1, 5, -1],
+        [0, -1, 0],
+    ]
+    )
+
+    sharp = cv2.filter2D(img, -1, kernel)
+
+    cv2.imshow("Original Image", img)
+    cv2.imshow("Sharp Image", sharp)
+
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
+sharpenImg(blur_img)
 
 
