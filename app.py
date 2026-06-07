@@ -128,10 +128,25 @@ def drawRect(img):
         pt2 = (300,300)
         color = (0,255,0)
 
-        rect = cv2.rectangle(img, pt1, pt2, color, -1)
+        rect = cv2.rectangle(img, pt1, pt2, color, 4)
 
         cv2.imshow("Rectangle", rect)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-drawRect(img4use[0])
+# drawRect(img4use[0])
+
+def textPrint(img):
+    if img is not None:
+        txtImg = cv2.putText(img, "This is Billa's image", 
+                    (400, 50),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    1.2,
+                    (0,255,220),
+                    2)
+        cv2.imshow("image", txtImg)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        
+
+textPrint(img4use[0])
