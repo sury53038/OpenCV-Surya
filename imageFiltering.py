@@ -51,6 +51,24 @@ def sharpenImg(img):
     cv2.destroyAllWindows()
 
 
-sharpenImg(blur_img)
+# sharpenImg(blur_img)
 
 
+def getContours(img):
+
+    imgCp = img.copy()
+
+    grayImg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    _, thresh = cv2.threshold(grayImg, 127, 200, cv2.THRESH_BINARY)
+
+    contours, heirarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cntImg = cv2.drawContours(grayImg,  contours, -1,  (0,255,0), 2)
+
+    cv2.imshow("Contours", cntImg)
+
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
+getContours(img4use[1])
