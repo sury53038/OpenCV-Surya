@@ -4,3 +4,7 @@ variabel  opencv  resize    image2resize    dimensions
           library  function                                         (optional)
 
 
+
+git stash pop  
+git statsh apply
+

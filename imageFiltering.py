@@ -72,3 +72,4 @@ def getContours(img):
 
 
 getContours(img4use[1])
+print("hello opencv")
